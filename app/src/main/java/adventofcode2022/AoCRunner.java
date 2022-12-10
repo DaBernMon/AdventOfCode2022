@@ -13,20 +13,24 @@ import java.util.Scanner;
  * For anyone following along, this class should be setup such that
  * you should not have to make any changes yourself as long as you follow this format:
  * 
- * 1. Each new AoC problem should be in its own folder named 'Day_X' where 'X' is the day number.
- *    So for example, on day 5, you create a new folder named 'Day_5' and
- *    put all your contents for day 5 there.
+ * 1. Each new AoC problem should be in its own folder named 'Day_XA' where 'X' is the day number,
+ *    and 'A' is the part of that day's problem.
+ *    So for example, on day 5, you create a new folder named 'Day_5A' and
+ *    put all your contents for day 5 there. If day 5 happens to have multiple parts, when you
+ *    complete part A, you can copy the entire 5A directory, and rename everything to 5B.
+ *    That way you'll have a reference of the previous solution as well.
  *    Note: The "_" is needed here, if it is not finding your folder, ensure it has the "_"!
- * 2. When you create the new Java class for the day, create a file 'DayXSolution.java'
- *    In the 'DayX' folder created in step 1. Again, 'X' should be the day number.
- * 3. The class 'DayXSolution' should have one public method named 'Solve' with no inputs.
+ * 2. When you create the new Java class for the day, create a file 'DayXASolution.java'
+ *    In the 'DayXA' folder created in step 1. Again, 'X' should be the day number,
+ *    and 'A' should be the part of that day's problem.
+ * 3. The class 'DayXASolution' should have one public method named 'Solve' with no inputs.
  *    So your solution should be contained within:
  *    public void Soltion() {
  *      < Your solution here >
  *    }
- * 4. The class 'DayXSolution' should be contained within the appropriate package.
+ * 4. The class 'DayXASolution' should be contained within the appropriate package.
  *    If using 'adventofcode2022' for this class (top line of file), then it should be:
- *    package adventofcode2022.Day_X;
+ *    package adventofcode2022.Day_XA;
  */
 public class AoCRunner {
     public static Helper AoCHelper = new Helper();
@@ -77,14 +81,14 @@ public class AoCRunner {
         while (chosenProblem == null) {
             System.out.println("Which problem do you want to solve? " + Arrays.toString(problemList));
 
-            String input = userInput.nextLine();
+            String input = userInput.nextLine().toUpperCase();
             if (input == null || input.length() == 0) {
                 System.out.println();
                 continue;
             }
 
             for (String problem: problemList) {
-                if (input.equals(problem)) {
+                if (input.equals(problem.toUpperCase())) {
                     chosenProblem = input;
                     break;
                 }
