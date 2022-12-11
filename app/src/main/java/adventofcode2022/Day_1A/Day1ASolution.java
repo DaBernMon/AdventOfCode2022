@@ -5,10 +5,10 @@ import java.util.List;
 import adventofcode2022.AoCRunner;
 
 /**
- * This is the solution for Day 1's problem.
+ * This is the solution for part 1 of day 1's problem.
  * 
  * The strategy is to loop over all the inputs keeping track of the max calories
- * we have seen so far by a single elf and a local max, the amount of calories
+ * we have seen so far by a single elf and the amount of calories
  * carried by the current elf. Once we are done processing a single elf's calories
  * we see if it exceeded the previous max and update the max if so.
  * 
@@ -56,25 +56,30 @@ public class Day1ASolution {
     /// will be contained within the variable 'solution', maybe make the last line of the method:
     ///   System.out.println("My answer is: " + solution);
     public void Solve() {
-        int max = -1;
-        int localMax = 0;
+        int max = -1; // Track the total max
+        int currentElf = 0; // Current elf's total calories
+
+        // Loop over total input one line at a time
         for (String line: getInputData()) {
+            // A blank line means we're done with the current elf's total
             if (line.length() == 0) {
-                if (max < localMax) {
-                    max = localMax;
+                // Is this elf's total greater than the highest we've seen?
+                if (max < currentElf) {
+                    max = currentElf;
                 }
 
-                localMax = 0;
+                // Now starting on the next elf
+                currentElf = 0;
                 continue;
             }
 
-            localMax += Integer.parseInt(line);
+            currentElf += Integer.parseInt(line);
         }
 
         // If the final line is not an empty line, the final elf's value
         // has not yet been checked. So check it here.
-        if (max < localMax) {
-            max = localMax;
+        if (max < currentElf) {
+            max = currentElf;
         }
         System.out.println("Solution for problem 1, part 1: " + max);
     }
