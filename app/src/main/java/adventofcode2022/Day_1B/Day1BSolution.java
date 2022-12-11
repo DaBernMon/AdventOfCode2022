@@ -12,7 +12,7 @@ import adventofcode2022.AoCRunner;
  * carried by the current elf. Once we are done processing a single elf's calories
  * we see if it exceeded the previous max of any of M elves and update the max if so.
  * 
- * It runs in O(NM) runtime, meaning if there are N entries in the list,m
+ * It runs in O(NM) runtime, meaning if there are N entries in the list,
  * and we want to track the top M elves, we only have,
  * in the worst case (which is every case for this solution), N*M iterations.
  * 
