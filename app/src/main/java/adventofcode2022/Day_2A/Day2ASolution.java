@@ -56,6 +56,9 @@ public class Day2ASolution {
         System.out.println("Solution for problem 2, part 1: " + totalScore);
     }
 
+    // Calculates the score for a single line of input
+    // First add points for the choice you made (rock / paper / scissors)
+    // Then add to that the round result
     private int calculateScoreForRound(String roundInput) {
         char opponentChoice = roundInput.charAt(0);
         char yourChoice = roundInput.charAt(2);
