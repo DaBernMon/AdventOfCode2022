@@ -14,7 +14,7 @@ import adventofcode2022.AoCRunner;
  * 
  * It runs in O(NM) runtime, meaning if there are N entries in the list,
  * and we want to track the top M elves, we only have,
- * in the worst case (which is every case for this solution), N*M iterations.
+ * in the worst case, N*M iterations.
  * 
  * If you ignore the cost of loading the input list, it uses O(M) additional storage.
  * We need a list of M to track the top M elves. Currently a constant of 3, but if we wanted more
