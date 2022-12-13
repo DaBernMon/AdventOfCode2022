@@ -25,7 +25,7 @@ import adventofcode2022.AoCRunner;
 public class Day3BSolution {
     private static String INPUT_NAME = "Day_3B/input.txt";
     private static String PROMPT = """
-        Find the item type that appears in both compartments of each rucksack.
+        Find the item type that corresponds to the badges of each three-Elf group.
         What is the sum of the priorities of those item types?
             """;
 
