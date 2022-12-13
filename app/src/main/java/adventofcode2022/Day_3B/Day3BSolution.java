@@ -6,7 +6,7 @@ import java.util.List;
 import adventofcode2022.AoCRunner;
 
 /**
- * This is the solution for part 1 of day 3's problem.
+ * This is the solution for part 2 of day 3's problem.
  * 
  * The strategy is to convert each character to an int,
  * add it to an array at the value position of its priority (so a goes in 0, A goes in 26).
