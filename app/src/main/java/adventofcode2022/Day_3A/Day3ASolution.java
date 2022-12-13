@@ -11,7 +11,7 @@ import adventofcode2022.AoCRunner;
  * The strategy is to convert each character to an int,
  * add it to an array at the value position of its priority (so a goes in 0, A goes in 26),
  * first half of the line goes in one array, second half goes in another.
- * Then, locally and the two lists and return the value where they match.
+ * Then, logically 'and' the two lists and return the value where they match.
  * Repeat this process for each line of input.
  * 
  * It runs in O(NMI) runtime, meaning if there are N entries in the list,
