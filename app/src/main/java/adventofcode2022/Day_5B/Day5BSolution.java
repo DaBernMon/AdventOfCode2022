@@ -1,4 +1,4 @@
-package adventofcode2022.Day_5A;
+package adventofcode2022.Day_5B;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -24,7 +24,7 @@ import adventofcode2022.AoCRunner;
  * If you ignore the cost of loading the input list, it uses O(C) storage,
  * where C is the total number of crates on all stacks.
  */
-public class Day5ASolution {
+public class Day5BSolution {
     private static String INPUT_NAME = "Day_5A/input.txt";
     private static String PROMPT = """
         After the rearrangement procedure completes, what crate ends up on top of each stack?
@@ -34,7 +34,7 @@ public class Day5ASolution {
     /// you MUST change its name to match the class name (DayXSolution) and make sure
     /// it takes no input arguments.
     /// You do not need to change any of the code contained within the method.
-    public Day5ASolution() {
+    public Day5BSolution() {
         if (INPUT_NAME == null) {
             System.out.println("Warning: INPUT_NAME has not been set for '"
                 + this.getClass().getName()
