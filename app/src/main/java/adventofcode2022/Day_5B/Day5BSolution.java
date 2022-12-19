@@ -7,25 +7,28 @@ import java.util.List;
 import adventofcode2022.AoCRunner;
 
 /**
- * This is the solution for part 1 of day 5's problem.
+ * This is the solution for part 2 of day 5's problem.
  * 
  * This solution will use doubly-linked lists, meaning they can act
  * as both a queue and a stack. During phase 1, loading the initial state of the crates,
  * the lists will be used as queues, each added element will be added to the back,
  * so the items encountered first will be removed first in phase 2.
  * In phase 2, following the instructions, the lists will be used as a stack,
- * removing the front item and adding it to the front of the next list.
+ * removing the front item and adding it a temporary list, then to the front of the next list.
  * Phase 3 will just loop over all the lists and get the front item for the answer.
+ * 
+ * The only change from part 1 is to use a temporary list to pop from the first stack onto.
+ * Then the temporary list can be popped until it is empty which keeps the crates in order.
  * 
  * It runs in O(NM) runtime, meaning if there are N entries in the instruction list,
  * and an instruction at worst moves M objects,
  * we only have, in the worst case, N iterations.
  * 
- * If you ignore the cost of loading the input list, it uses O(C) storage,
- * where C is the total number of crates on all stacks.
+ * If you ignore the cost of loading the input list, it uses O(C+M) storage,
+ * where C is the total number of crates on all stacks and M is the most number of objects to use.
  */
 public class Day5BSolution {
-    private static String INPUT_NAME = "Day_5A/input.txt";
+    private static String INPUT_NAME = "Day_5B/input.txt";
     private static String PROMPT = """
         After the rearrangement procedure completes, what crate ends up on top of each stack?
         """;
@@ -114,10 +117,14 @@ public class Day5BSolution {
             int fromStack = Integer.parseInt(splitInstructions[1]) - 1;
             int toStack = Integer.parseInt(splitInstructions[2]) - 1;
 
-            // For X, remove one from top of Y, add to top of Z
+            // For X, remove one from top of Y, add to top of the temp list
+            LinkedList<String> tempList = new LinkedList<>();
             for (int i = 0; i < count; i++) {
-                String temp = stacks.get(fromStack).pop();
-                stacks.get(toStack).push(temp);
+                tempList.push(stacks.get(fromStack).pop());
+            }
+            // For X, remove it from top of temp list, add to top of Z
+            for (int i = 0; i < count; i++) {
+                stacks.get(toStack).push(tempList.pop());
             }
         }
 
@@ -125,7 +132,7 @@ public class Day5BSolution {
         for (int i = 0; i < stackCount; i++) {
             answer += stacks.get(i).pop();
         }
-        System.out.println("Solution for problem 5, part 1: " + answer);
+        System.out.println("Solution for problem 5, part 2: " + answer);
     }
 
     ///
