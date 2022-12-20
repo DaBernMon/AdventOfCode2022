@@ -1,6 +1,5 @@
 package adventofcode2022.Day_6A;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
